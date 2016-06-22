@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      2536,         89]
-NotebookOptionsPosition[      1957,         64]
-NotebookOutlinePosition[      2315,         80]
-CellTagsIndexPosition[      2272,         77]
+NotebookDataLength[      4793,        148]
+NotebookOptionsPosition[      4020,        118]
+NotebookOutlinePosition[      4378,        134]
+CellTagsIndexPosition[      4335,        131]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -23,27 +23,81 @@ Cell[CellGroupData[{
 Cell["Rails integration", "Title",
  CellChangeTimes->{{3.675569441931035*^9, 3.675569446480152*^9}}],
 
-Cell["Examples", "Program",
- CellChangeTimes->{{3.675569521155849*^9, 3.675569529139655*^9}}],
+Cell["\<\
+This is working code used in a variety of applications.  I will try to put \
+together some demos that you can see but if you look at the code it is pretty \
+simple.  I had to frig with the UrlFetch code in mathematica to get this \
+working which is why I publish this for your use.
+
+Note these are all pulling data in Json format.  So the controllers need to \
+support this.\
+\>", "Text",
+ CellChangeTimes->{{3.67557101796379*^9, 3.675571041228365*^9}, {
+  3.6755712561359673`*^9, 3.675571341124208*^9}}],
+
+Cell["Examples  Post  (get and others are asically the same)", "Program",
+ CellChangeTimes->{{3.675569521155849*^9, 3.675569529139655*^9}, {
+  3.675571119640142*^9, 3.675571129326392*^9}}],
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<rails`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.675571142111738*^9, 3.675571146455452*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"host", "=", " ", "\"\<http://xxx.yyy.com\>\""}], " ", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"armodel", "=", "\"\<promotion\>\""}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"body", "=", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<configuration_setting_id\>\"", " ", "->", " ", "cs"}], ",", 
+     " ", 
+     RowBox[{"\"\<template_name\>\"", "->", " ", "template"}], ",", " ", 
+     RowBox[{"\"\<wolfram\>\"", "->", " ", "True"}]}], "|>"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"PrintTemporary", "[", "body", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"res", "=", 
+   RowBox[{"railsPostActiveRecordModel", "[", 
+    RowBox[{"armodel", ",", "body", ",", "host"}], " ", "]"}]}], " ", 
+  ";"}], "\n"}], "Input",
+ CellChangeTimes->{{3.675571082486212*^9, 3.675571131302784*^9}}],
+
+Cell["\<\
+Get all models  (returns an array of JSON rather than an association)\
+\>", "Program",
+ CellChangeTimes->{{3.675571194494379*^9, 3.675571208477829*^9}, {
+  3.67557124743439*^9, 3.6755712485207148`*^9}}],
+
+Cell[BoxData["railsGetActiveRecordModels"], "Input"],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<rails`\>\"", "]"}]], "Input",
  CellChangeTimes->{{3.6755695471915607`*^9, 3.6755695508701*^9}}],
 
-Cell["Software install", "Program",
- CellChangeTimes->{{3.67556945509818*^9, 3.6755694583846607`*^9}}],
+Cell["\<\
+Software install - you need to copy rails.wl into your Mathematica \
+application.  A mac sample is below but similar locations should exist on \
+linux/windows.  Good luck.\
+\>", "Program",
+ CellChangeTimes->{{3.67556945509818*^9, 3.6755694583846607`*^9}, {
+  3.675571359246745*^9, 3.6755713924142427`*^9}}],
 
-Cell[BoxData[
- RowBox[{"Needs", "[", "\"\<estormdash`\>\"", "]"}]], "Input",
+Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.6755694600332403`*^9, 3.6755694688411417`*^9}, 
-   3.675569507101708*^9}],
+   3.675569507101708*^9, 3.67557135370884*^9}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"estormdash`installEstormLocal", "[", "\"\<rails.wl\>\"", 
-  "]"}]], "Input",
- CellChangeTimes->{{3.6755694718508577`*^9, 3.675569487050013*^9}}],
+ RowBox[{"installEstormLocal", "[", "\"\<rails.wl\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.6755694718508577`*^9, 3.675569487050013*^9}, 
+   3.675571351038445*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -81,14 +135,19 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 100, 1, 92, "Title"],
-Cell[683, 25, 93, 1, 46, "Program"],
-Cell[779, 28, 137, 2, 86, "Input"],
-Cell[919, 32, 102, 1, 46, "Program"],
-Cell[1024, 35, 172, 3, 28, "Input"],
+Cell[683, 25, 514, 10, 106, "Text"],
+Cell[1200, 37, 188, 2, 46, "Program"],
+Cell[1391, 41, 137, 2, 28, "Input"],
+Cell[1531, 45, 841, 23, 131, "Input"],
+Cell[2375, 70, 212, 4, 46, "Program"],
+Cell[2590, 76, 52, 0, 28, "Input"],
+Cell[2645, 78, 137, 2, 28, "Input"],
+Cell[2785, 82, 316, 6, 60, "Program"],
+Cell[3104, 90, 143, 2, 28, "Input"],
 Cell[CellGroupData[{
-Cell[1221, 42, 168, 3, 28, "Input"],
-Cell[1392, 47, 377, 9, 22, "Print"],
-Cell[1772, 58, 157, 2, 28, "Output"]
+Cell[3272, 96, 180, 3, 28, "Input"],
+Cell[3455, 101, 377, 9, 22, "Print"],
+Cell[3835, 112, 157, 2, 28, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
