@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[      4793,        148]
-NotebookOptionsPosition[      4020,        118]
-NotebookOutlinePosition[      4378,        134]
-CellTagsIndexPosition[      4335,        131]
+NotebookDataLength[      5683,        171]
+NotebookOptionsPosition[      4830,        139]
+NotebookOutlinePosition[      5188,        155]
+CellTagsIndexPosition[      5145,        152]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -30,10 +30,13 @@ simple.  I had to frig with the UrlFetch code in mathematica to get this \
 working which is why I publish this for your use.
 
 Note these are all pulling data in Json format.  So the controllers need to \
-support this.\
+support this.
+
+Please see the test file for specific examples. \
 \>", "Text",
  CellChangeTimes->{{3.67557101796379*^9, 3.675571041228365*^9}, {
-  3.6755712561359673`*^9, 3.675571341124208*^9}}],
+  3.6755712561359673`*^9, 3.675571341124208*^9}, {3.677470141771879*^9, 
+  3.677470156058673*^9}}],
 
 Cell["Examples  Post  (get and others are asically the same)", "Program",
  CellChangeTimes->{{3.675569521155849*^9, 3.675569529139655*^9}, {
@@ -68,13 +71,31 @@ Cell[BoxData[{
   ";"}], "\n"}], "Input",
  CellChangeTimes->{{3.675571082486212*^9, 3.675571131302784*^9}}],
 
+Cell["Get a model by id (returns association)", "Program",
+ CellChangeTimes->{{3.677470190556037*^9, 3.677470222660981*^9}, {
+  3.677470297977613*^9, 3.6774703032079077`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Needs", "[", "\"\<rails`\>\"", "]"}], ";", 
+   RowBox[{"host", "=", "\"\<http://127.0.0.1:5522/\>\""}], ";", " ", 
+   RowBox[{"res", "=", 
+    RowBox[{"rails`railsGetActiveRecordModel", "[", 
+     RowBox[{"\"\<net_asset_value\>\"", ",", "1", ",", "host"}], " ", "]"}]}],
+    ";"}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{3.677470201100871*^9}],
+
 Cell["\<\
 Get all models  (returns an array of JSON rather than an association)\
 \>", "Program",
  CellChangeTimes->{{3.675571194494379*^9, 3.675571208477829*^9}, {
   3.67557124743439*^9, 3.6755712485207148`*^9}}],
 
-Cell[BoxData["railsGetActiveRecordModels"], "Input"],
+Cell[BoxData[
+ RowBox[{"railsGetActiveRecordModels", "[", 
+  RowBox[{"armodel", ",", "host"}], "]"}]], "Input",
+ CellChangeTimes->{{3.677470256366479*^9, 3.677470289110765*^9}}],
 
 Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<rails`\>\"", "]"}]], "Input",
@@ -135,19 +156,21 @@ CellTagsIndex->{}
 Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 100, 1, 92, "Title"],
-Cell[683, 25, 514, 10, 106, "Text"],
-Cell[1200, 37, 188, 2, 46, "Program"],
-Cell[1391, 41, 137, 2, 28, "Input"],
-Cell[1531, 45, 841, 23, 131, "Input"],
-Cell[2375, 70, 212, 4, 46, "Program"],
-Cell[2590, 76, 52, 0, 28, "Input"],
-Cell[2645, 78, 137, 2, 28, "Input"],
-Cell[2785, 82, 316, 6, 60, "Program"],
-Cell[3104, 90, 143, 2, 28, "Input"],
+Cell[683, 25, 613, 13, 144, "Text"],
+Cell[1299, 40, 188, 2, 46, "Program"],
+Cell[1490, 44, 137, 2, 28, "Input"],
+Cell[1630, 48, 841, 23, 131, "Input"],
+Cell[2474, 73, 175, 2, 46, "Program"],
+Cell[2652, 77, 405, 9, 80, "Input"],
+Cell[3060, 88, 212, 4, 46, "Program"],
+Cell[3275, 94, 177, 3, 28, "Input"],
+Cell[3455, 99, 137, 2, 28, "Input"],
+Cell[3595, 103, 316, 6, 60, "Program"],
+Cell[3914, 111, 143, 2, 28, "Input"],
 Cell[CellGroupData[{
-Cell[3272, 96, 180, 3, 28, "Input"],
-Cell[3455, 101, 377, 9, 22, "Print"],
-Cell[3835, 112, 157, 2, 28, "Output"]
+Cell[4082, 117, 180, 3, 28, "Input"],
+Cell[4265, 122, 377, 9, 22, "Print"],
+Cell[4645, 133, 157, 2, 28, "Output"]
 }, Open  ]]
 }, Open  ]]
 }
