@@ -17,6 +17,11 @@ railsGetActiveRecordModel::usage=" get ar model railsGetActiveRecordModel[modelN
 railsGetActiveRecordModels::usage=" get ar model railsGetActiveRecordModels[modelName_String,,host_String ]";
 railsGetRawJsonDataRails::usage="get Raw Json Data from rails application";
 railsPostActiveRecordModel::usage="create a model in active record from mathematica railsPostActiveRecordModel[modelName_String,body_Association,host_String ]";
+(* logging utilities for logging results *)
+railsOpenLog::usage="open logging railsOpenLog[fname_String, directory_String:]";
+railsLogStream::usage="log stream variable railsLogStream ";
+railsLog::usage="log values railsLog[out_OutputStream,string_String,expression_:{}]";
+railsSystemStatus::usage="return key system status railsSystemStatus";
 
 Begin["`Private`"]
 Attributes[railsPrintDebug]={HoldAll};
@@ -70,6 +75,30 @@ res=railsGetRawJsonDataRails[url,rules];
 Association[ImportString[res,"JSON"]]
 ];
 
+(* logging *)
+railsOpenLog[fname_String, directory_String: "~/dreamLog/" ]:=Module[{filename,outs},
+If[Length[FileNames[directory]]==0,CreateDirectory[directory]];
+filename=StringJoin[directory,fname,DateString["ISODate"]];
+Print["creating log file: ",filename];
+outs=OpenWrite[filename];
+If[Head[outs]==OutputStream,railsLogStream=outs];
+outs
+  ];
+
+railsLog[out_OutputStream,string_String,expression_:{}]:=Module[{}, 
+Write[out,{{DateList[],$TimeZone},string,expression}]
+];
+
+railsSystemStatus[]:=Module[{assoc},
+assoc=<|"memoryinuse" -> MemoryInUse[],"maxmemory"-> MaxMemoryUsed[] |>;
+assoc ];
+
 End[];
 EndPackage[];
+
+
+
+
+
+
 
