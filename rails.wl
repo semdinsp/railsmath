@@ -18,7 +18,8 @@ railsGetActiveRecordModels::usage=" get ar model railsGetActiveRecordModels[mode
 railsGetRawJsonDataRails::usage="get Raw Json Data from rails application";
 railsPostActiveRecordModel::usage="create a model in active record from mathematica railsPostActiveRecordModel[modelName_String,body_Association,host_String ]";
 (* logging utilities for logging results *)
-railsOpenLog::usage="open logging railsOpenLog[fname_String, directory_String:]";
+railsLogOpen::usage="open logging railsLogOepn[fname_String, directory_String:]";
+railsLogCompress::usage="compress log directory - internal only normal railsLogCompress[fname,directory]";
 railsLogStream::usage="log stream variable railsLogStream ";
 railsLog::usage="log values railsLog[out_OutputStream,string_String,expression_:{}]";
 railsSystemStatus::usage="return key system status railsSystemStatus";
@@ -76,25 +77,44 @@ Association[ImportString[res,"JSON"]]
 ];
 
 (* logging *)
-railsOpenLog[fname_String, directory_String: "~/dreamLog/" ]:=Module[{filename,outs},
+railsLogOpen[fname_String, directory_String: "~/dreamLog/" ]:=Module[{filename,outs},
 If[Length[FileNames[directory]]==0,CreateDirectory[directory]];
-filename=StringJoin[directory,fname,DateString["ISODate"]];
+filename=StringJoin[directory,DateString["ISODate"],"-kern-",ToString[$KernelID],"-",fname,".log"];
+railsLogCompress[StringJoin[ToString[$KernelID],"-",fname,".log"],directory];
 Print["creating log file: ",filename];
-outs=OpenWrite[filename];
+outs=OpenWrite[filename,PageWidth -> 1000];
 If[Head[outs]==OutputStream,railsLogStream=outs];
+railsLog[outs,"startup at....."];
 outs
   ];
 
+(* compress old files *) 
+railsLogCompress[fname_String, directory_String: "~/dreamLog/" ]:=Module[{files,fileform,olddir},
+olddir=Directory[];
+ fileform=StringJoin["*",fname];
+ files=FileNames[fileform,{directory}];
+ SetDirectory[directory];
+ {Print["zipping ",#," short:  ",FileNameTake[#]];RunProcess[{"gzip",FileNameTake[#]}] }& /@ files;
+ SetDirectory[olddir];
+];
+
 railsLog[out_OutputStream,string_String,expression_:{}]:=Module[{}, 
-Write[out,{{DateList[],$TimeZone},string,expression}]
+Write[out,{"-------------------------------: ",DateList[],$TimeZone}];
+Write[out,{string,expression}]
 ];
 
 railsSystemStatus[]:=Module[{assoc},
-assoc=<|"memoryinuse" -> MemoryInUse[],"maxmemory"-> MaxMemoryUsed[] |>;
+assoc=<|"memoryinuse" -> MemoryInUse[],"maxmemory"-> MaxMemoryUsed[] ,"host" -> $MachineName, "kernel"-> $KernelID|>;
 assoc ];
 
 End[];
 EndPackage[];
+
+
+
+
+
+
 
 
 

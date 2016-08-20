@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     23766,        553]
-NotebookOptionsPosition[     22549,        507]
-NotebookOutlinePosition[     22908,        523]
-CellTagsIndexPosition[     22865,        520]
+NotebookDataLength[     30082,        727]
+NotebookOptionsPosition[     28218,        659]
+NotebookOutlinePosition[     28577,        675]
+CellTagsIndexPosition[     28534,        672]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -49,20 +49,22 @@ Cell[BoxData[
 
 Cell[BoxData[
  InterpretationBox[
-  RowBox[{"\<\"Sat 13 Aug 2016 21:41:19\"\>", 
+  RowBox[{"\<\"Sat 20 Aug 2016 12:47:34\"\>", 
    "\[InvisibleSpace]", \
 "\<\"/Users/scott/Library/Mathematica/Applications/rails.wl\"\>"}],
   SequenceForm[
-  "Sat 13 Aug 2016 21:41:19", 
+  "Sat 20 Aug 2016 12:47:34", 
    "/Users/scott/Library/Mathematica/Applications/rails.wl"],
   Editable->False]], "Print",
  CellChangeTimes->{3.6800805251389713`*^9, 3.680084415654828*^9, 
-  3.68008447968118*^9}],
+  3.68008447968118*^9, 3.680123890930584*^9, 3.680309231548312*^9, 
+  3.6803096944430923`*^9, 3.680657254834321*^9}],
 
 Cell[BoxData["\<\"/Users/scott/Library/Mathematica/Applications/rails.wl\"\>"]\
 , "Output",
  CellChangeTimes->{3.6800805251480637`*^9, 3.680084415665968*^9, 
-  3.680084479695215*^9}]
+  3.680084479695215*^9, 3.6801238909458227`*^9, 3.680309231563603*^9, 
+  3.680309694464334*^9, 3.6806572548507957`*^9}]
 }, Open  ]],
 
 Cell["Test", "Program",
@@ -72,21 +74,81 @@ Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<rails`\>\"", "]"}]], "Input",
  CellChangeTimes->{{3.6800805288395243`*^9, 3.6800805332126217`*^9}}],
 
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"railsLogCompress", "[", 
+    RowBox[{"fname_String", ",", " ", 
+     RowBox[{"directory_String:", " ", "\"\<~/dreamLog/\>\""}]}], " ", "]"}], 
+   ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"files", ",", "fileform", ",", "olddir"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"olddir", "=", 
+       RowBox[{"Directory", "[", "]"}]}], ";", "\[IndentingNewLine]", " ", 
+      RowBox[{"fileform", "=", 
+       RowBox[{"StringJoin", "[", 
+        RowBox[{"\"\<*\>\"", ",", "fname"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", " ", 
+      RowBox[{"files", "=", 
+       RowBox[{"FileNames", "[", 
+        RowBox[{"fileform", ",", 
+         RowBox[{"{", "directory", "}"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", " ", 
+      RowBox[{"SetDirectory", "[", "directory", "]"}], ";", 
+      "\[IndentingNewLine]", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Print", "[", 
+           RowBox[{"\"\<zipping \>\"", ",", "#", ",", "\"\<short:  \>\"", ",", 
+            RowBox[{"FileNameTake", "[", "#", "]"}]}], "]"}], ";", 
+          RowBox[{"RunProcess", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"\"\<gzip\>\"", ",", 
+              RowBox[{"FileNameTake", "[", "#", "]"}]}], "}"}], ",", 
+            RowBox[{"ProcessEnvironment", "\[Rule]", 
+             RowBox[{"<|", 
+              RowBox[{"\"\<PATH\>\"", "\[Rule]", "\"\</usr/bin/\>\""}], 
+              "|>"}]}]}], "]"}]}], " ", "}"}], "&"}], " ", "/@", " ", 
+       "files"}], ";", "\[IndentingNewLine]", " ", 
+      RowBox[{"SetDirectory", "[", "olddir", "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.680657270504088*^9, 3.6806573969101152`*^9}, {
+   3.680657452678566*^9, 3.680657504267726*^9}, {3.680657642598665*^9, 
+   3.680657686662825*^9}, {3.680657726290535*^9, 3.680657735057104*^9}, {
+   3.680657765403947*^9, 3.680657788375682*^9}, {3.6806578575901423`*^9, 
+   3.680657881334587*^9}, 3.680657989463935*^9, {3.68065803461208*^9, 
+   3.6806580359555273`*^9}, {3.6806582051930447`*^9, 3.6806582343521633`*^9}, 
+   3.68065854299095*^9, {3.68065861757321*^9, 3.6806586190241203`*^9}, {
+   3.680658680854538*^9, 3.6806586904207983`*^9}}],
+
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"railsOpenLog", "[", "\"\<scotttest\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.680077909963505*^9, 3.680077913298173*^9}}],
+ RowBox[{"railsLogOpen", "[", "\"\<scotttest\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.680077909963505*^9, 3.680077913298173*^9}, {
+  3.6806572645541697`*^9, 3.6806572682815733`*^9}}],
 
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"creating log file: \"\>", 
-   "\[InvisibleSpace]", "\<\"~/dreamLog/scotttest2016-08-13\"\>"}],
-  SequenceForm["creating log file: ", "~/dreamLog/scotttest2016-08-13"],
+   "\[InvisibleSpace]", "\<\"~/dreamLog/2016-08-18-kern-0-scotttest.log\"\>"}],
+  SequenceForm[
+  "creating log file: ", "~/dreamLog/2016-08-18-kern-0-scotttest.log"],
   Editable->False]], "Print",
- CellChangeTimes->{3.680077916833783*^9, 3.68007813852724*^9, 
-  3.680078170267878*^9, 3.680078301803636*^9, 3.680078384290669*^9, 
-  3.680080448682366*^9, 3.6800805849245863`*^9}],
+ CellChangeTimes->{
+  3.680077916833783*^9, 3.68007813852724*^9, 3.680078170267878*^9, 
+   3.680078301803636*^9, 3.680078384290669*^9, 3.680080448682366*^9, 
+   3.6800805849245863`*^9, {3.680309235830104*^9, 3.680309254882575*^9}, 
+   3.680309288284924*^9, 3.6803093854050903`*^9, 3.6803095471021357`*^9, 
+   3.680494051967066*^9, {3.68049409002645*^9, 3.680494098910283*^9}, 
+   3.6804941377353687`*^9}],
 
 Cell[BoxData[
  InterpretationBox[
@@ -218,7 +280,7 @@ Cell[BoxData[
               "SummaryItemAnnotation"], "\[InvisibleSpace]", 
              TagBox[
               StyleBox[
-               PaneBox["\<\"scotttest2016-08-13\"\>",
+               PaneBox["\<\"2016-08-18-kern-0-scotttest.log\"\>",
                 BaselinePosition->Baseline,
                 ContentPadding->False,
                 FrameMargins->0,
@@ -230,7 +292,7 @@ Cell[BoxData[
             RowBox[{
              TagBox["\<\"Unique ID: \"\>",
               "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-             TagBox["3",
+             TagBox["4",
               "SummaryItem"]}]}
           },
           AutoDelete->False,
@@ -370,7 +432,9 @@ Cell[BoxData[
              TagBox["\<\"Name: \"\>",
               "SummaryItemAnnotation"], "\[InvisibleSpace]", 
              TagBox[
-              PaneBox["\<\"/Users/scott/dreamLog/scotttest2016-08-13\"\>",
+              
+              PaneBox["\<\"/Users/scott/dreamLog/2016-08-18-kern-0-scotttest.\
+log\"\>",
                BaselinePosition->Baseline,
                ContentPadding->False,
                FrameMargins->0,
@@ -381,7 +445,7 @@ Cell[BoxData[
             RowBox[{
              TagBox["\<\"Unique ID: \"\>",
               "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-             TagBox["3",
+             TagBox["4",
               "SummaryItem"]}]},
            {
             RowBox[{
@@ -396,8 +460,8 @@ Cell[BoxData[
              TagBox[
               DynamicBox[ToBoxes[Options[
                   OutputStream[
-                  "/Users/scott/dreamLog/scotttest2016-08-13", 3]] =!= {}, 
-                StandardForm],
+                  "/Users/scott/dreamLog/2016-08-18-kern-0-scotttest.log", 
+                   4]] =!= {}, StandardForm],
                UpdateInterval->1],
               "SummaryItem"]}]},
            {
@@ -416,7 +480,7 @@ Cell[BoxData[
             RowBox[{
              TagBox["\<\"Page width: \"\>",
               "SummaryItemAnnotation"], "\[InvisibleSpace]", 
-             TagBox["78",
+             TagBox["1000",
               "SummaryItem"]}]},
            {
             RowBox[{
@@ -445,13 +509,17 @@ Cell[BoxData[
       ImageSize->Automatic],
      BaselinePosition->Baseline],
     DynamicModuleValues:>{}], "]"}],
-  OutputStream["/Users/scott/dreamLog/scotttest2016-08-13", 3],
+  OutputStream["/Users/scott/dreamLog/2016-08-18-kern-0-scotttest.log", 4],
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
- CellChangeTimes->{3.6800779169779253`*^9, 3.680078138705027*^9, 
-  3.680078170431314*^9, 3.68007830185448*^9, 3.680078384307589*^9, 
-  3.680080448708292*^9, 3.680080584986692*^9}]
+ CellChangeTimes->{
+  3.6800779169779253`*^9, 3.680078138705027*^9, 3.680078170431314*^9, 
+   3.68007830185448*^9, 3.680078384307589*^9, 3.680080448708292*^9, 
+   3.680080584986692*^9, {3.680309235945636*^9, 3.680309254905295*^9}, 
+   3.680309288305831*^9, 3.680309385423608*^9, 3.6803095471214943`*^9, 
+   3.680494052027882*^9, {3.680494090114443*^9, 3.680494098994556*^9}, 
+   3.680494137752509*^9}]
 }, Open  ]],
 
 Cell[BoxData[
@@ -471,10 +539,13 @@ Cell[BoxData[
  RowBox[{"Close", "[", "railsLogStream", "]"}]], "Input",
  CellChangeTimes->{{3.680078191417811*^9, 3.6800781999652643`*^9}}],
 
-Cell[BoxData[
- RowBox[{"Close", "[", "railsLogStream", "]"}]], "Output",
- CellChangeTimes->{3.680078200395781*^9, 3.6800783820716133`*^9, 
-  3.6800804453143787`*^9, 3.680080481056425*^9}]
+Cell[BoxData["\<\"/Users/scott/dreamLog/2016-08-18-kern-0-scotttest.log\"\>"],\
+ "Output",
+ CellChangeTimes->{
+  3.680078200395781*^9, 3.6800783820716133`*^9, 3.6800804453143787`*^9, 
+   3.680080481056425*^9, 3.680309245058689*^9, {3.680309283448799*^9, 
+   3.680309299300097*^9}, 3.6803095446176577`*^9, 3.6804940853264427`*^9, 
+   3.680494148989736*^9}]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -498,10 +569,91 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{"\[LeftAssociation]", 
   RowBox[{
-   RowBox[{"\<\"memoryinuse\"\>", "\[Rule]", "178792720"}], ",", 
-   RowBox[{"\<\"maxmemory\"\>", "\[Rule]", "180745552"}]}], 
+   RowBox[{"\<\"memoryinuse\"\>", "\[Rule]", "161650808"}], ",", 
+   RowBox[{"\<\"maxmemory\"\>", "\[Rule]", "166094008"}], ",", 
+   RowBox[{"\<\"host\"\>", "\[Rule]", "\<\"Scotts-MacBook-Pro\"\>"}], ",", 
+   RowBox[{"\<\"kernel\"\>", "\[Rule]", "0"}]}], 
   "\[RightAssociation]"}]], "Output",
- CellChangeTimes->{3.680084104446591*^9, 3.680084431102456*^9}]
+ CellChangeTimes->{3.680084104446591*^9, 3.680084431102456*^9, 
+  3.680123896915106*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Scratch Area", "Subsubtitle",
+ CellChangeTimes->{{3.680657540086275*^9, 3.68065754182797*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{"fileform", "=", 
+   RowBox[{"StringJoin", "[", 
+    RowBox[{"\"\<*\>\"", ",", "\"\<log\>\""}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.68065755003716*^9, 3.680657557068901*^9}}],
+
+Cell[BoxData["\<\"*log\"\>"], "Output",
+ CellChangeTimes->{3.6806575577715073`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Environment", "[", "\"\<PATH\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.680658064848984*^9, 3.680658074387795*^9}}],
+
+Cell[BoxData["\<\"/usr/bin:/bin:/usr/sbin:/sbin\"\>"], "Output",
+ CellChangeTimes->{3.6806580748325453`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"railsLogCompress", "[", "\"\<.log\>\"", " ", "]"}]], "Input",
+ CellChangeTimes->{{3.68065781213793*^9, 3.6806578198644133`*^9}, 
+   3.680658015302178*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"files", "=", 
+  RowBox[{"FileNames", "[", 
+   RowBox[{"fileform", ",", 
+    RowBox[{"{", "\"\<~/dreamLog\>\"", "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.6806575711336*^9, 3.680657580813361*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"~/dreamLog/2016-08-16.scotttest.log\"\>", 
+   ",", "\<\"~/dreamLog/2016-08-16scotttest.log\"\>", 
+   ",", "\<\"~/dreamLog/2016-08-18-0-scotttest.log\"\>", 
+   ",", "\<\"~/dreamLog/2016-08-18-kern-0-scotttest.log\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.680657581212131*^9, 3.680657913882349*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"olddir", "=", 
+  RowBox[{"Directory", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.680657603866461*^9, 3.6806576387103767`*^9}}],
+
+Cell[BoxData["\<\"/Users/scott\"\>"], "Output",
+ CellChangeTimes->{3.6806576138480873`*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Module", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"directory", "=", 
+     RowBox[{"SystemDialogInput", "[", "\"\<Directory\>\"", "]"}]}], "}"}], 
+   ",", 
+   RowBox[{"If", "[", 
+    RowBox[{
+     RowBox[{"directory", "=!=", "$Canceled"}], ",", 
+     RowBox[{"SetDirectory", "[", "directory", "]"}]}], "]"}]}], 
+  "]"}]], "Input",
+ NumberMarks->False]
 }, Open  ]]
 }, Open  ]]
 },
@@ -530,29 +682,51 @@ Cell[1086, 35, 92, 1, 46, "Program"],
 Cell[1181, 38, 193, 3, 28, "Input"],
 Cell[CellGroupData[{
 Cell[1399, 45, 152, 2, 28, "Input"],
-Cell[1554, 49, 403, 10, 22, "Print"],
-Cell[1960, 61, 182, 3, 28, "Output"]
+Cell[1554, 49, 496, 11, 22, "Print"],
+Cell[2053, 62, 277, 4, 28, "Output"]
 }, Open  ]],
-Cell[2157, 67, 89, 1, 46, "Program"],
-Cell[2249, 70, 141, 2, 28, "Input"],
+Cell[2345, 69, 89, 1, 46, "Program"],
+Cell[2437, 72, 141, 2, 28, "Input"],
+Cell[2581, 76, 2331, 52, 199, "Input"],
 Cell[CellGroupData[{
-Cell[2415, 76, 147, 2, 28, "Input"],
-Cell[2565, 80, 427, 8, 22, "Print"],
-Cell[2995, 90, 17942, 363, 60, "Output"]
+Cell[4937, 132, 200, 3, 28, "Input"],
+Cell[5140, 137, 678, 13, 22, "Print"],
+Cell[5821, 152, 18233, 369, 60, "Output"]
 }, Open  ]],
-Cell[20952, 456, 204, 4, 28, "Input"],
-Cell[21159, 462, 181, 3, 28, "Input"],
+Cell[24069, 524, 204, 4, 28, "Input"],
+Cell[24276, 530, 181, 3, 28, "Input"],
 Cell[CellGroupData[{
-Cell[21365, 469, 139, 2, 28, "Input"],
-Cell[21507, 473, 187, 3, 28, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[21731, 481, 185, 4, 28, "Input"],
-Cell[21919, 487, 144, 1, 28, "Output"]
+Cell[24482, 537, 139, 2, 28, "Input"],
+Cell[24624, 541, 355, 6, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[22100, 493, 133, 2, 28, "Input"],
-Cell[22236, 497, 285, 6, 28, "Output"]
+Cell[25016, 552, 185, 4, 28, "Input"],
+Cell[25204, 558, 144, 1, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25385, 564, 133, 2, 28, "Input"],
+Cell[25521, 568, 439, 9, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25997, 582, 100, 1, 29, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[26122, 587, 220, 5, 28, "Input"],
+Cell[26345, 594, 83, 1, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[26465, 600, 141, 2, 28, "Input"],
+Cell[26609, 604, 108, 1, 28, "Output"]
+}, Open  ]],
+Cell[26732, 608, 178, 3, 28, "Input"],
+Cell[CellGroupData[{
+Cell[26935, 615, 226, 5, 28, "Input"],
+Cell[27164, 622, 348, 7, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27549, 634, 153, 3, 28, "Input"],
+Cell[27705, 639, 91, 1, 28, "Output"]
+}, Open  ]],
+Cell[27811, 643, 379, 12, 46, "Input"]
 }, Open  ]]
 }, Open  ]]
 }
