@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     30082,        727]
-NotebookOptionsPosition[     28218,        659]
-NotebookOutlinePosition[     28577,        675]
-CellTagsIndexPosition[     28534,        672]
+NotebookDataLength[     48660,       1131]
+NotebookOptionsPosition[     46315,       1045]
+NotebookOutlinePosition[     46674,       1061]
+CellTagsIndexPosition[     46631,       1058]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -49,22 +49,22 @@ Cell[BoxData[
 
 Cell[BoxData[
  InterpretationBox[
-  RowBox[{"\<\"Sat 20 Aug 2016 12:47:34\"\>", 
+  RowBox[{"\<\"Sat 20 Aug 2016 13:17:54\"\>", 
    "\[InvisibleSpace]", \
 "\<\"/Users/scott/Library/Mathematica/Applications/rails.wl\"\>"}],
   SequenceForm[
-  "Sat 20 Aug 2016 12:47:34", 
+  "Sat 20 Aug 2016 13:17:54", 
    "/Users/scott/Library/Mathematica/Applications/rails.wl"],
   Editable->False]], "Print",
  CellChangeTimes->{3.6800805251389713`*^9, 3.680084415654828*^9, 
   3.68008447968118*^9, 3.680123890930584*^9, 3.680309231548312*^9, 
-  3.6803096944430923`*^9, 3.680657254834321*^9}],
+  3.6803096944430923`*^9, 3.680657254834321*^9, 3.680659074063498*^9}],
 
 Cell[BoxData["\<\"/Users/scott/Library/Mathematica/Applications/rails.wl\"\>"]\
 , "Output",
  CellChangeTimes->{3.6800805251480637`*^9, 3.680084415665968*^9, 
   3.680084479695215*^9, 3.6801238909458227`*^9, 3.680309231563603*^9, 
-  3.680309694464334*^9, 3.6806572548507957`*^9}]
+  3.680309694464334*^9, 3.6806572548507957`*^9, 3.680659074079274*^9}]
 }, Open  ]],
 
 Cell["Test", "Program",
@@ -74,51 +74,7 @@ Cell[BoxData[
  RowBox[{"Needs", "[", "\"\<rails`\>\"", "]"}]], "Input",
  CellChangeTimes->{{3.6800805288395243`*^9, 3.6800805332126217`*^9}}],
 
-Cell[BoxData[
- RowBox[{
-  RowBox[{
-   RowBox[{"railsLogCompress", "[", 
-    RowBox[{"fname_String", ",", " ", 
-     RowBox[{"directory_String:", " ", "\"\<~/dreamLog/\>\""}]}], " ", "]"}], 
-   ":=", 
-   RowBox[{"Module", "[", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"files", ",", "fileform", ",", "olddir"}], "}"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{
-      RowBox[{"olddir", "=", 
-       RowBox[{"Directory", "[", "]"}]}], ";", "\[IndentingNewLine]", " ", 
-      RowBox[{"fileform", "=", 
-       RowBox[{"StringJoin", "[", 
-        RowBox[{"\"\<*\>\"", ",", "fname"}], "]"}]}], ";", 
-      "\[IndentingNewLine]", " ", 
-      RowBox[{"files", "=", 
-       RowBox[{"FileNames", "[", 
-        RowBox[{"fileform", ",", 
-         RowBox[{"{", "directory", "}"}]}], "]"}]}], ";", 
-      "\[IndentingNewLine]", " ", 
-      RowBox[{"SetDirectory", "[", "directory", "]"}], ";", 
-      "\[IndentingNewLine]", " ", 
-      RowBox[{
-       RowBox[{
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"Print", "[", 
-           RowBox[{"\"\<zipping \>\"", ",", "#", ",", "\"\<short:  \>\"", ",", 
-            RowBox[{"FileNameTake", "[", "#", "]"}]}], "]"}], ";", 
-          RowBox[{"RunProcess", "[", 
-           RowBox[{
-            RowBox[{"{", 
-             RowBox[{"\"\<gzip\>\"", ",", 
-              RowBox[{"FileNameTake", "[", "#", "]"}]}], "}"}], ",", 
-            RowBox[{"ProcessEnvironment", "\[Rule]", 
-             RowBox[{"<|", 
-              RowBox[{"\"\<PATH\>\"", "\[Rule]", "\"\</usr/bin/\>\""}], 
-              "|>"}]}]}], "]"}]}], " ", "}"}], "&"}], " ", "/@", " ", 
-       "files"}], ";", "\[IndentingNewLine]", " ", 
-      RowBox[{"SetDirectory", "[", "olddir", "]"}], ";"}]}], 
-    "\[IndentingNewLine]", "]"}]}], ";"}]], "Input",
+Cell[BoxData[""], "Input",
  CellChangeTimes->{{3.680657270504088*^9, 3.6806573969101152`*^9}, {
    3.680657452678566*^9, 3.680657504267726*^9}, {3.680657642598665*^9, 
    3.680657686662825*^9}, {3.680657726290535*^9, 3.680657735057104*^9}, {
@@ -126,7 +82,7 @@ Cell[BoxData[
    3.680657881334587*^9}, 3.680657989463935*^9, {3.68065803461208*^9, 
    3.6806580359555273`*^9}, {3.6806582051930447`*^9, 3.6806582343521633`*^9}, 
    3.68065854299095*^9, {3.68065861757321*^9, 3.6806586190241203`*^9}, {
-   3.680658680854538*^9, 3.6806586904207983`*^9}}],
+   3.680658680854538*^9, 3.680658700591558*^9}}],
 
 Cell[CellGroupData[{
 
@@ -135,20 +91,29 @@ Cell[BoxData[
  CellChangeTimes->{{3.680077909963505*^9, 3.680077913298173*^9}, {
   3.6806572645541697`*^9, 3.6806572682815733`*^9}}],
 
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"zipping \"\>", 
+   "\[InvisibleSpace]", "\<\"~/dreamLog/2016-08-20-kern-0-scotttest.log\"\>", 
+   "\[InvisibleSpace]", "\<\" short:  \"\>", 
+   "\[InvisibleSpace]", "\<\"2016-08-20-kern-0-scotttest.log\"\>"}],
+  SequenceForm[
+  "zipping ", "~/dreamLog/2016-08-20-kern-0-scotttest.log", " short:  ", 
+   "2016-08-20-kern-0-scotttest.log"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6807348804613457`*^9}],
+
 Cell[BoxData[
  InterpretationBox[
   RowBox[{"\<\"creating log file: \"\>", 
-   "\[InvisibleSpace]", "\<\"~/dreamLog/2016-08-18-kern-0-scotttest.log\"\>"}],
+   "\[InvisibleSpace]", "\<\"~/dreamLog/2016-08-21-kern-0-scotttest.log\"\>"}],
   SequenceForm[
-  "creating log file: ", "~/dreamLog/2016-08-18-kern-0-scotttest.log"],
+  "creating log file: ", "~/dreamLog/2016-08-21-kern-0-scotttest.log"],
   Editable->False]], "Print",
- CellChangeTimes->{
-  3.680077916833783*^9, 3.68007813852724*^9, 3.680078170267878*^9, 
-   3.680078301803636*^9, 3.680078384290669*^9, 3.680080448682366*^9, 
-   3.6800805849245863`*^9, {3.680309235830104*^9, 3.680309254882575*^9}, 
-   3.680309288284924*^9, 3.6803093854050903`*^9, 3.6803095471021357`*^9, 
-   3.680494051967066*^9, {3.68049409002645*^9, 3.680494098910283*^9}, 
-   3.6804941377353687`*^9}],
+ CellChangeTimes->{3.680734880494317*^9}]
+}, Open  ]],
 
 Cell[BoxData[
  InterpretationBox[
@@ -280,7 +245,494 @@ Cell[BoxData[
               "SummaryItemAnnotation"], "\[InvisibleSpace]", 
              TagBox[
               StyleBox[
-               PaneBox["\<\"2016-08-18-kern-0-scotttest.log\"\>",
+               PaneBox["\<\"2016-08-21-kern-0-scotttest.log\"\>",
+                BaselinePosition->Baseline,
+                ContentPadding->False,
+                FrameMargins->0,
+                ImageSize->{{1, 300}, Automatic},
+                StripOnInput->True],
+               LineBreakWithin->False],
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Unique ID: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["3",
+              "SummaryItem"]}]}
+          },
+          AutoDelete->False,
+          
+          BaseStyle->{
+           ShowStringCharacters -> False, NumberMarks -> False, 
+            PrintPrecision -> 3, ShowSyntaxStyles -> False},
+          GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+          GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+       },
+       AutoDelete->False,
+       BaselinePosition->{1, 1},
+       GridBoxAlignment->{"Rows" -> {{Top}}},
+       GridBoxItemSize->{
+        "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], True->
+      GridBox[{
+        {
+         PaneBox[
+          ButtonBox[
+           
+           DynamicBox[FEPrivate`FrontEndResource[
+            "FEBitmaps", "SquareMinusIconMedium"]],
+           Appearance->None,
+           ButtonFunction:>(Typeset`open$$ = False),
+           Evaluator->Automatic,
+           Method->"Preemptive"],
+          Alignment->{Center, Center},
+          
+          ImageSize->
+           Dynamic[{
+            Automatic, 3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+             Magnification]}]], 
+         GraphicsBox[
+          {Thickness[0.0016806722689075631`], 
+           {FaceForm[{GrayLevel[0.93], Opacity[1.]}], 
+            FilledCurveBox[{{{1, 4, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {1, 
+             3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}}}, {{{25.499999999999996`,
+              2.5}, {25.499999999999996`, 1.3953100000000003`}, {
+             24.604699999999998`, 0.49999999999999994`}, {23.5, 
+             0.49999999999999994`}, {2.5, 0.49999999999999994`}, {
+             1.3953100000000003`, 0.49999999999999994`}, {
+             0.49999999999999994`, 1.3953100000000003`}, {
+             0.49999999999999994`, 2.5}, {0.49999999999999994`, 23.5}, {
+             0.49999999999999994`, 24.604699999999998`}, {1.3953100000000003`,
+              25.499999999999996`}, {2.5, 25.499999999999996`}, {23.5, 
+             25.499999999999996`}, {24.604699999999998`, 
+             25.499999999999996`}, {25.499999999999996`, 
+             24.604699999999998`}, {25.499999999999996`, 23.5}, {
+             25.499999999999996`, 2.5}}}]}, 
+           {RGBColor[0.699951, 0.699951, 0.699951], Opacity[1.], 
+            JoinForm[{ElisionsDump`Miter, 10.}], 
+            JoinedCurveBox[{{{1, 4, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {1, 
+             3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}}}, {{{25.499999999999996`,
+              2.5}, {25.499999999999996`, 1.3953100000000003`}, {
+             24.604699999999998`, 0.49999999999999994`}, {23.5, 
+             0.49999999999999994`}, {2.5, 0.49999999999999994`}, {
+             1.3953100000000003`, 0.49999999999999994`}, {
+             0.49999999999999994`, 1.3953100000000003`}, {
+             0.49999999999999994`, 2.5}, {0.49999999999999994`, 23.5}, {
+             0.49999999999999994`, 24.604699999999998`}, {1.3953100000000003`,
+              25.499999999999996`}, {2.5, 25.499999999999996`}, {23.5, 
+             25.499999999999996`}, {24.604699999999998`, 
+             25.499999999999996`}, {25.499999999999996`, 
+             24.604699999999998`}, {25.499999999999996`, 23.5}, {
+             25.499999999999996`, 2.5}}}]}, 
+           {FaceForm[{RGBColor[0.5, 0.5, 0.5], Opacity[1.]}], 
+            FilledCurveBox[{{{0, 2, 0}, {1, 3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 
+             1, 0}, {1, 3, 3}, {1, 3, 3}}}, {{{3.52539, 
+             1.0035199999999997`}, {2.5250000000000004`, 
+             1.0035199999999997`}, {1.6828099999999997`, 
+             1.0035199999999997`}, {0.9999999999999999, 
+             1.6863299999999997`}, {0.9999999999999999, 
+             2.5285199999999994`}, {0.9999999999999999, 
+             23.474999999999998`}, {0.9999999999999999, 
+             24.317199999999996`}, {1.6828099999999997`, 
+             24.999999999999996`}, {2.5250000000000004`, 
+             24.999999999999996`}, {3.52539, 24.999999999999996`}, {3.52539, 
+             24.999999999999993`}, {5.523440000000001, 22.421099999999996`}, {
+             5.523440000000001, 13.0039}, {5.523440000000001, 
+             3.5867199999999992`}, {3.52539, 1.0035199999999997`}, {3.52539, 
+             1.0035199999999997`}}}], 
+            FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 
+             1, 0}, {0, 1, 0}}}, {{{22.4977, 12.9016}, {17.740599999999997`, 
+             16.8398}, {17.740599999999997`, 14.856599999999998`}, {
+             19.980900000000002`, 12.947299999999997`}, {17.740599999999997`, 
+             10.946100000000001`}, {17.740599999999997`, 8.96289}, {22.4977, 
+             12.9016}}}]}, 
+           {FaceForm[{RGBColor[
+            0.46093800000000007`, 0.46093800000000007`, 0.46093800000000007`],
+             Opacity[1.]}], 
+            FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}}}, {{{
+             9.202339999999998, 12.8969}, {9.202339999999998, 
+             12.335499999999998`}, {8.747660000000002, 11.880899999999999`}, {
+             8.186329999999998, 11.880899999999999`}, {7.624999999999999, 
+             11.880899999999999`}, {7.169920000000001, 12.335499999999998`}, {
+             7.169920000000001, 12.8969}, {7.169920000000001, 
+             13.458200000000003`}, {7.624999999999999, 13.9133}, {
+             8.186329999999998, 13.9133}, {8.747660000000002, 13.9133}, {
+             9.202339999999998, 13.458200000000003`}, {9.202339999999998, 
+             12.8969}}}], 
+            FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}}}, {{{
+             12.6227, 12.8969}, {12.6227, 12.335499999999998`}, {
+             12.167599999999998`, 11.880899999999999`}, {11.606200000000001`, 
+             11.880899999999999`}, {11.0449, 11.880899999999999`}, {
+             10.589799999999999`, 12.335499999999998`}, {10.589799999999999`, 
+             12.8969}, {10.589799999999999`, 13.458200000000003`}, {11.0449, 
+             13.9133}, {11.606200000000001`, 13.9133}, {12.167599999999998`, 
+             13.9133}, {12.6227, 13.458200000000003`}, {12.6227, 12.8969}}}], 
+            FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}}}, {{{
+             16.042600000000004`, 12.8969}, {16.042600000000004`, 
+             12.335499999999998`}, {15.587499999999999`, 
+             11.880899999999999`}, {15.026199999999998`, 
+             11.880899999999999`}, {14.464799999999997`, 
+             11.880899999999999`}, {14.010199999999998`, 
+             12.335499999999998`}, {14.010199999999998`, 12.8969}, {
+             14.010199999999998`, 13.458200000000003`}, {14.464799999999997`, 
+             13.9133}, {15.026199999999998`, 13.9133}, {15.587499999999999`, 
+             13.9133}, {16.042600000000004`, 13.458200000000003`}, {
+             16.042600000000004`, 12.8969}}}]}},
+          AspectRatio->1,
+          Axes->False,
+          Background->GrayLevel[0.5],
+          Frame->True,
+          FrameStyle->Directive[
+            Thickness[Tiny], 
+            GrayLevel[0.7]],
+          FrameTicks->None,
+          ImageSize->{Automatic, 
+            Dynamic[
+            3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+              Magnification])]}], GridBox[{
+           {
+            RowBox[{
+             TagBox["\<\"Name: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox[
+              
+              PaneBox["\<\"/Users/scott/dreamLog/2016-08-21-kern-0-scotttest.\
+log\"\>",
+               BaselinePosition->Baseline,
+               ContentPadding->False,
+               FrameMargins->0,
+               ImageSize->{{1, 500}, Automatic},
+               StripOnInput->True],
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Unique ID: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["3",
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Binary: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["False",
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Open: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox[
+              DynamicBox[ToBoxes[Options[
+                  OutputStream[
+                  "/Users/scott/dreamLog/2016-08-21-kern-0-scotttest.log", 
+                   3]] =!= {}, StandardForm],
+               UpdateInterval->1],
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Encoding: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["Automatic",
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Format: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["InputForm",
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Page width: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["1000",
+              "SummaryItem"]}]},
+           {
+            RowBox[{
+             TagBox["\<\"Number marks: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox["Automatic",
+              "SummaryItem"]}]}
+          },
+          AutoDelete->False,
+          
+          BaseStyle->{
+           ShowStringCharacters -> False, NumberMarks -> False, 
+            PrintPrecision -> 3, ShowSyntaxStyles -> False},
+          GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Automatic}}},
+          
+          GridBoxItemSize->{
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+          GridBoxSpacings->{"Columns" -> {{2}}, "Rows" -> {{Automatic}}}]}
+       },
+       AutoDelete->False,
+       BaselinePosition->{1, 1},
+       GridBoxAlignment->{"Rows" -> {{Top}}},
+       GridBoxItemSize->{
+        "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+      Typeset`open$$],
+      ImageSize->Automatic],
+     BaselinePosition->Baseline],
+    DynamicModuleValues:>{}], "]"}],
+  OutputStream["/Users/scott/dreamLog/2016-08-21-kern-0-scotttest.log", 3],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{
+  3.6800779169779253`*^9, 3.680078138705027*^9, 3.680078170431314*^9, 
+   3.68007830185448*^9, 3.680078384307589*^9, 3.680080448708292*^9, 
+   3.680080584986692*^9, {3.680309235945636*^9, 3.680309254905295*^9}, 
+   3.680309288305831*^9, 3.680309385423608*^9, 3.6803095471214943`*^9, 
+   3.680494052027882*^9, {3.680494090114443*^9, 3.680494098994556*^9}, 
+   3.680494137752509*^9, {3.680734875148011*^9, 3.6807348805365343`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"railsLog", "[", 
+  RowBox[{"railsLogStream", ",", "\"\<hello\>\"", ",", 
+   RowBox[{"{", "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.680077928150853*^9, 3.680077954472513*^9}}],
+
+Cell[BoxData[
+ RowBox[{"railsLog", "[", 
+  RowBox[{"railsLogStream", ",", "\"\<empty exp\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.6800800387644672`*^9, 3.680080044810254*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Close", "[", "railsLogStream", "]"}]], "Input",
+ CellChangeTimes->{{3.680078191417811*^9, 3.6800781999652643`*^9}}],
+
+Cell[BoxData["\<\"/Users/scott/dreamLog/2016-08-18-kern-0-scotttest.log\"\>"],\
+ "Output",
+ CellChangeTimes->{
+  3.680078200395781*^9, 3.6800783820716133`*^9, 3.6800804453143787`*^9, 
+   3.680080481056425*^9, 3.680309245058689*^9, {3.680309283448799*^9, 
+   3.680309299300097*^9}, 3.6803095446176577`*^9, 3.6804940853264427`*^9, 
+   3.680494148989736*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Close", "[", 
+  RowBox[{"Last", "[", 
+   RowBox[{"Streams", "[", "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.680078276388399*^9, 3.680078298146151*^9}}],
+
+Cell[BoxData["\<\"/Users/scott/dreamLog/scotttest2016-08-13\"\>"], "Output",
+ CellChangeTimes->{{3.6800782790931473`*^9, 3.680078298567162*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"railsSystemStatus", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.6800841038505774`*^9, 3.680084103974334*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"memoryinuse\"\>", "\[Rule]", "161650808"}], ",", 
+   RowBox[{"\<\"maxmemory\"\>", "\[Rule]", "166094008"}], ",", 
+   RowBox[{"\<\"host\"\>", "\[Rule]", "\<\"Scotts-MacBook-Pro\"\>"}], ",", 
+   RowBox[{"\<\"kernel\"\>", "\[Rule]", "0"}]}], 
+  "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.680084104446591*^9, 3.680084431102456*^9, 
+  3.680123896915106*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Scratch Area", "Subsubtitle",
+ CellChangeTimes->{{3.680657540086275*^9, 3.68065754182797*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{" ", 
+  RowBox[{"fileform", "=", 
+   RowBox[{"StringJoin", "[", 
+    RowBox[{"\"\<*\>\"", ",", "\"\<log\>\""}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.68065755003716*^9, 3.680657557068901*^9}}],
+
+Cell[BoxData["\<\"*log\"\>"], "Output",
+ CellChangeTimes->{3.6806575577715073`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Environment", "[", "\"\<PATH\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.680658064848984*^9, 3.680658074387795*^9}}],
+
+Cell[BoxData["\<\"/usr/bin:/bin:/usr/sbin:/sbin\"\>"], "Output",
+ CellChangeTimes->{3.6806580748325453`*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"railsLogOpen", "[", "\"\<scotttest\>\"", "]"}]], "Input"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"zipping \"\>", 
+   "\[InvisibleSpace]", "\<\"~/dreamLog/2016-08-20-kern-0-scotttest.log\"\>", 
+   "\[InvisibleSpace]", "\<\"short:  \"\>", 
+   "\[InvisibleSpace]", "\<\"2016-08-20-kern-0-scotttest.log\"\>"}],
+  SequenceForm[
+  "zipping ", "~/dreamLog/2016-08-20-kern-0-scotttest.log", "short:  ", 
+   "2016-08-20-kern-0-scotttest.log"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.680658992797756*^9, {3.680659024585284*^9, 3.680659052668713*^9}}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"creating log file: \"\>", 
+   "\[InvisibleSpace]", "\<\"~/dreamLog/2016-08-20-kern-0-scotttest.log\"\>"}],
+  SequenceForm[
+  "creating log file: ", "~/dreamLog/2016-08-20-kern-0-scotttest.log"],
+  Editable->False]], "Print",
+ CellChangeTimes->{
+  3.680658992797756*^9, {3.680659024585284*^9, 3.680659052684299*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["OutputStream",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False}, 
+    PanelBox[
+     PaneSelectorBox[{False->GridBox[{
+        {
+         PaneBox[
+          ButtonBox[
+           
+           DynamicBox[FEPrivate`FrontEndResource[
+            "FEBitmaps", "SquarePlusIconMedium"],
+            ImageSizeCache->{12., {0., 12.}}],
+           Appearance->None,
+           ButtonFunction:>(Typeset`open$$ = True),
+           Evaluator->Automatic,
+           Method->"Preemptive"],
+          Alignment->{Center, Center},
+          
+          ImageSize->
+           Dynamic[{
+            Automatic, 3.5 CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+             Magnification]}]], 
+         GraphicsBox[
+          {Thickness[0.0016806722689075631`], 
+           {FaceForm[{GrayLevel[0.93], Opacity[1.]}], 
+            FilledCurveBox[{{{1, 4, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {1, 
+             3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}}}, {{{25.499999999999996`,
+              2.5}, {25.499999999999996`, 1.3953100000000003`}, {
+             24.604699999999998`, 0.49999999999999994`}, {23.5, 
+             0.49999999999999994`}, {2.5, 0.49999999999999994`}, {
+             1.3953100000000003`, 0.49999999999999994`}, {
+             0.49999999999999994`, 1.3953100000000003`}, {
+             0.49999999999999994`, 2.5}, {0.49999999999999994`, 23.5}, {
+             0.49999999999999994`, 24.604699999999998`}, {1.3953100000000003`,
+              25.499999999999996`}, {2.5, 25.499999999999996`}, {23.5, 
+             25.499999999999996`}, {24.604699999999998`, 
+             25.499999999999996`}, {25.499999999999996`, 
+             24.604699999999998`}, {25.499999999999996`, 23.5}, {
+             25.499999999999996`, 2.5}}}]}, 
+           {RGBColor[0.699951, 0.699951, 0.699951], Opacity[1.], 
+            JoinForm[{ElisionsDump`Miter, 10.}], 
+            JoinedCurveBox[{{{1, 4, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}, {1, 
+             3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 1, 0}}}, {{{25.499999999999996`,
+              2.5}, {25.499999999999996`, 1.3953100000000003`}, {
+             24.604699999999998`, 0.49999999999999994`}, {23.5, 
+             0.49999999999999994`}, {2.5, 0.49999999999999994`}, {
+             1.3953100000000003`, 0.49999999999999994`}, {
+             0.49999999999999994`, 1.3953100000000003`}, {
+             0.49999999999999994`, 2.5}, {0.49999999999999994`, 23.5}, {
+             0.49999999999999994`, 24.604699999999998`}, {1.3953100000000003`,
+              25.499999999999996`}, {2.5, 25.499999999999996`}, {23.5, 
+             25.499999999999996`}, {24.604699999999998`, 
+             25.499999999999996`}, {25.499999999999996`, 
+             24.604699999999998`}, {25.499999999999996`, 23.5}, {
+             25.499999999999996`, 2.5}}}]}, 
+           {FaceForm[{RGBColor[0.5, 0.5, 0.5], Opacity[1.]}], 
+            FilledCurveBox[{{{0, 2, 0}, {1, 3, 3}, {0, 1, 0}, {1, 3, 3}, {0, 
+             1, 0}, {1, 3, 3}, {1, 3, 3}}}, {{{3.52539, 
+             1.0035199999999997`}, {2.5250000000000004`, 
+             1.0035199999999997`}, {1.6828099999999997`, 
+             1.0035199999999997`}, {0.9999999999999999, 
+             1.6863299999999997`}, {0.9999999999999999, 
+             2.5285199999999994`}, {0.9999999999999999, 
+             23.474999999999998`}, {0.9999999999999999, 
+             24.317199999999996`}, {1.6828099999999997`, 
+             24.999999999999996`}, {2.5250000000000004`, 
+             24.999999999999996`}, {3.52539, 24.999999999999996`}, {3.52539, 
+             24.999999999999993`}, {5.523440000000001, 22.421099999999996`}, {
+             5.523440000000001, 13.0039}, {5.523440000000001, 
+             3.5867199999999992`}, {3.52539, 1.0035199999999997`}, {3.52539, 
+             1.0035199999999997`}}}], 
+            FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 
+             1, 0}, {0, 1, 0}}}, {{{22.4977, 12.9016}, {17.740599999999997`, 
+             16.8398}, {17.740599999999997`, 14.856599999999998`}, {
+             19.980900000000002`, 12.947299999999997`}, {17.740599999999997`, 
+             10.946100000000001`}, {17.740599999999997`, 8.96289}, {22.4977, 
+             12.9016}}}]}, 
+           {FaceForm[{RGBColor[
+            0.46093800000000007`, 0.46093800000000007`, 0.46093800000000007`],
+             Opacity[1.]}], 
+            FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}}}, {{{
+             9.202339999999998, 12.8969}, {9.202339999999998, 
+             12.335499999999998`}, {8.747660000000002, 11.880899999999999`}, {
+             8.186329999999998, 11.880899999999999`}, {7.624999999999999, 
+             11.880899999999999`}, {7.169920000000001, 12.335499999999998`}, {
+             7.169920000000001, 12.8969}, {7.169920000000001, 
+             13.458200000000003`}, {7.624999999999999, 13.9133}, {
+             8.186329999999998, 13.9133}, {8.747660000000002, 13.9133}, {
+             9.202339999999998, 13.458200000000003`}, {9.202339999999998, 
+             12.8969}}}], 
+            FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}}}, {{{
+             12.6227, 12.8969}, {12.6227, 12.335499999999998`}, {
+             12.167599999999998`, 11.880899999999999`}, {11.606200000000001`, 
+             11.880899999999999`}, {11.0449, 11.880899999999999`}, {
+             10.589799999999999`, 12.335499999999998`}, {10.589799999999999`, 
+             12.8969}, {10.589799999999999`, 13.458200000000003`}, {11.0449, 
+             13.9133}, {11.606200000000001`, 13.9133}, {12.167599999999998`, 
+             13.9133}, {12.6227, 13.458200000000003`}, {12.6227, 12.8969}}}], 
+            FilledCurveBox[{{{1, 4, 3}, {1, 3, 3}, {1, 3, 3}, {1, 3, 3}}}, {{{
+             16.042600000000004`, 12.8969}, {16.042600000000004`, 
+             12.335499999999998`}, {15.587499999999999`, 
+             11.880899999999999`}, {15.026199999999998`, 
+             11.880899999999999`}, {14.464799999999997`, 
+             11.880899999999999`}, {14.010199999999998`, 
+             12.335499999999998`}, {14.010199999999998`, 12.8969}, {
+             14.010199999999998`, 13.458200000000003`}, {14.464799999999997`, 
+             13.9133}, {15.026199999999998`, 13.9133}, {15.587499999999999`, 
+             13.9133}, {16.042600000000004`, 13.458200000000003`}, {
+             16.042600000000004`, 12.8969}}}]}},
+          AspectRatio->1,
+          Axes->False,
+          Background->GrayLevel[0.5],
+          Frame->True,
+          FrameStyle->Directive[
+            Thickness[Tiny], 
+            GrayLevel[0.7]],
+          FrameTicks->None,
+          ImageSize->{Automatic, 
+            Dynamic[
+            3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+              Magnification])]}], GridBox[{
+           {
+            RowBox[{
+             TagBox["\<\"Name: \"\>",
+              "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+             TagBox[
+              StyleBox[
+               PaneBox["\<\"2016-08-20-kern-0-scotttest.log\"\>",
                 BaselinePosition->Baseline,
                 ContentPadding->False,
                 FrameMargins->0,
@@ -433,7 +885,7 @@ Cell[BoxData[
               "SummaryItemAnnotation"], "\[InvisibleSpace]", 
              TagBox[
               
-              PaneBox["\<\"/Users/scott/dreamLog/2016-08-18-kern-0-scotttest.\
+              PaneBox["\<\"/Users/scott/dreamLog/2016-08-20-kern-0-scotttest.\
 log\"\>",
                BaselinePosition->Baseline,
                ContentPadding->False,
@@ -460,7 +912,7 @@ log\"\>",
              TagBox[
               DynamicBox[ToBoxes[Options[
                   OutputStream[
-                  "/Users/scott/dreamLog/2016-08-18-kern-0-scotttest.log", 
+                  "/Users/scott/dreamLog/2016-08-20-kern-0-scotttest.log", 
                    4]] =!= {}, StandardForm],
                UpdateInterval->1],
               "SummaryItem"]}]},
@@ -509,107 +961,41 @@ log\"\>",
       ImageSize->Automatic],
      BaselinePosition->Baseline],
     DynamicModuleValues:>{}], "]"}],
-  OutputStream["/Users/scott/dreamLog/2016-08-18-kern-0-scotttest.log", 4],
+  OutputStream["/Users/scott/dreamLog/2016-08-20-kern-0-scotttest.log", 4],
   Editable->False,
   SelectWithContents->True,
   Selectable->False]], "Output",
  CellChangeTimes->{
-  3.6800779169779253`*^9, 3.680078138705027*^9, 3.680078170431314*^9, 
-   3.68007830185448*^9, 3.680078384307589*^9, 3.680080448708292*^9, 
-   3.680080584986692*^9, {3.680309235945636*^9, 3.680309254905295*^9}, 
-   3.680309288305831*^9, 3.680309385423608*^9, 3.6803095471214943`*^9, 
-   3.680494052027882*^9, {3.680494090114443*^9, 3.680494098994556*^9}, 
-   3.680494137752509*^9}]
+  3.680658992927926*^9, {3.680659024612391*^9, 3.680659052704053*^9}}]
 }, Open  ]],
-
-Cell[BoxData[
- RowBox[{"railsLog", "[", 
-  RowBox[{"railsLogStream", ",", "\"\<hello\>\"", ",", 
-   RowBox[{"{", "}"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.680077928150853*^9, 3.680077954472513*^9}}],
-
-Cell[BoxData[
- RowBox[{"railsLog", "[", 
-  RowBox[{"railsLogStream", ",", "\"\<empty exp\>\""}], "]"}]], "Input",
- CellChangeTimes->{{3.6800800387644672`*^9, 3.680080044810254*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
- RowBox[{"Close", "[", "railsLogStream", "]"}]], "Input",
- CellChangeTimes->{{3.680078191417811*^9, 3.6800781999652643`*^9}}],
+ RowBox[{"Close", "[", "railsLogStream", "]"}]], "Input"],
 
-Cell[BoxData["\<\"/Users/scott/dreamLog/2016-08-18-kern-0-scotttest.log\"\>"],\
+Cell[BoxData["\<\"/Users/scott/dreamLog/2016-08-20-kern-0-scotttest.log\"\>"],\
  "Output",
- CellChangeTimes->{
-  3.680078200395781*^9, 3.6800783820716133`*^9, 3.6800804453143787`*^9, 
-   3.680080481056425*^9, 3.680309245058689*^9, {3.680309283448799*^9, 
-   3.680309299300097*^9}, 3.6803095446176577`*^9, 3.6804940853264427`*^9, 
-   3.680494148989736*^9}]
+ CellChangeTimes->{{3.680659001838887*^9, 3.680659048822632*^9}}]
 }, Open  ]],
 
 Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Close", "[", 
-  RowBox[{"Last", "[", 
-   RowBox[{"Streams", "[", "]"}], "]"}], "]"}]], "Input",
- CellChangeTimes->{{3.680078276388399*^9, 3.680078298146151*^9}}],
-
-Cell[BoxData["\<\"/Users/scott/dreamLog/scotttest2016-08-13\"\>"], "Output",
- CellChangeTimes->{{3.6800782790931473`*^9, 3.680078298567162*^9}}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"railsSystemStatus", "[", "]"}]], "Input",
- CellChangeTimes->{{3.6800841038505774`*^9, 3.680084103974334*^9}}],
-
-Cell[BoxData[
- RowBox[{"\[LeftAssociation]", 
-  RowBox[{
-   RowBox[{"\<\"memoryinuse\"\>", "\[Rule]", "161650808"}], ",", 
-   RowBox[{"\<\"maxmemory\"\>", "\[Rule]", "166094008"}], ",", 
-   RowBox[{"\<\"host\"\>", "\[Rule]", "\<\"Scotts-MacBook-Pro\"\>"}], ",", 
-   RowBox[{"\<\"kernel\"\>", "\[Rule]", "0"}]}], 
-  "\[RightAssociation]"}]], "Output",
- CellChangeTimes->{3.680084104446591*^9, 3.680084431102456*^9, 
-  3.680123896915106*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["Scratch Area", "Subsubtitle",
- CellChangeTimes->{{3.680657540086275*^9, 3.68065754182797*^9}}],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{" ", 
-  RowBox[{"fileform", "=", 
-   RowBox[{"StringJoin", "[", 
-    RowBox[{"\"\<*\>\"", ",", "\"\<log\>\""}], "]"}]}]}]], "Input",
- CellChangeTimes->{{3.68065755003716*^9, 3.680657557068901*^9}}],
-
-Cell[BoxData["\<\"*log\"\>"], "Output",
- CellChangeTimes->{3.6806575577715073`*^9}]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[
- RowBox[{"Environment", "[", "\"\<PATH\>\"", "]"}]], "Input",
- CellChangeTimes->{{3.680658064848984*^9, 3.680658074387795*^9}}],
-
-Cell[BoxData["\<\"/usr/bin:/bin:/usr/sbin:/sbin\"\>"], "Output",
- CellChangeTimes->{3.6806580748325453`*^9}]
-}, Open  ]],
 
 Cell[BoxData[
  RowBox[{"railsLogCompress", "[", "\"\<.log\>\"", " ", "]"}]], "Input",
  CellChangeTimes->{{3.68065781213793*^9, 3.6806578198644133`*^9}, 
    3.680658015302178*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"zipping \"\>", 
+   "\[InvisibleSpace]", "\<\"~/dreamLog/fred.log\"\>", 
+   "\[InvisibleSpace]", "\<\"short:  \"\>", 
+   "\[InvisibleSpace]", "\<\"fred.log\"\>"}],
+  SequenceForm["zipping ", "~/dreamLog/fred.log", "short:  ", "fred.log"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.68065888116415*^9}]
+}, Open  ]],
 
 Cell[CellGroupData[{
 
@@ -682,51 +1068,69 @@ Cell[1086, 35, 92, 1, 46, "Program"],
 Cell[1181, 38, 193, 3, 28, "Input"],
 Cell[CellGroupData[{
 Cell[1399, 45, 152, 2, 28, "Input"],
-Cell[1554, 49, 496, 11, 22, "Print"],
-Cell[2053, 62, 277, 4, 28, "Output"]
+Cell[1554, 49, 518, 11, 22, "Print"],
+Cell[2075, 62, 299, 4, 28, "Output"]
 }, Open  ]],
-Cell[2345, 69, 89, 1, 46, "Program"],
-Cell[2437, 72, 141, 2, 28, "Input"],
-Cell[2581, 76, 2331, 52, 199, "Input"],
+Cell[2389, 69, 89, 1, 46, "Program"],
+Cell[2481, 72, 141, 2, 28, "Input"],
+Cell[2625, 76, 587, 8, 28, "Input"],
 Cell[CellGroupData[{
-Cell[4937, 132, 200, 3, 28, "Input"],
-Cell[5140, 137, 678, 13, 22, "Print"],
-Cell[5821, 152, 18233, 369, 60, "Output"]
+Cell[3237, 88, 200, 3, 28, "Input"],
+Cell[CellGroupData[{
+Cell[3462, 95, 461, 10, 22, "Print"],
+Cell[3926, 107, 315, 7, 22, "Print"]
 }, Open  ]],
-Cell[24069, 524, 204, 4, 28, "Input"],
-Cell[24276, 530, 181, 3, 28, "Input"],
-Cell[CellGroupData[{
-Cell[24482, 537, 139, 2, 28, "Input"],
-Cell[24624, 541, 355, 6, 28, "Output"]
+Cell[4256, 117, 18281, 369, 94, "Output"]
 }, Open  ]],
+Cell[22552, 489, 204, 4, 28, "Input"],
+Cell[22759, 495, 181, 3, 28, "Input"],
 Cell[CellGroupData[{
-Cell[25016, 552, 185, 4, 28, "Input"],
-Cell[25204, 558, 144, 1, 28, "Output"]
-}, Open  ]],
-Cell[CellGroupData[{
-Cell[25385, 564, 133, 2, 28, "Input"],
-Cell[25521, 568, 439, 9, 28, "Output"]
+Cell[22965, 502, 139, 2, 28, "Input"],
+Cell[23107, 506, 355, 6, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[25997, 582, 100, 1, 29, "Subsubtitle"],
-Cell[CellGroupData[{
-Cell[26122, 587, 220, 5, 28, "Input"],
-Cell[26345, 594, 83, 1, 28, "Output"]
+Cell[23499, 517, 185, 4, 28, "Input"],
+Cell[23687, 523, 144, 1, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[26465, 600, 141, 2, 28, "Input"],
-Cell[26609, 604, 108, 1, 28, "Output"]
-}, Open  ]],
-Cell[26732, 608, 178, 3, 28, "Input"],
-Cell[CellGroupData[{
-Cell[26935, 615, 226, 5, 28, "Input"],
-Cell[27164, 622, 348, 7, 46, "Output"]
+Cell[23868, 529, 133, 2, 28, "Input"],
+Cell[24004, 533, 439, 9, 28, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[27549, 634, 153, 3, 28, "Input"],
-Cell[27705, 639, 91, 1, 28, "Output"]
+Cell[24480, 547, 100, 1, 29, "Subsubtitle"],
+Cell[CellGroupData[{
+Cell[24605, 552, 220, 5, 28, "Input"],
+Cell[24828, 559, 83, 1, 28, "Output"]
 }, Open  ]],
-Cell[27811, 643, 379, 12, 46, "Input"]
+Cell[CellGroupData[{
+Cell[24948, 565, 141, 2, 28, "Input"],
+Cell[25092, 569, 108, 1, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25237, 575, 81, 1, 28, "Input"],
+Cell[CellGroupData[{
+Cell[25343, 580, 506, 11, 22, "Print"],
+Cell[25852, 593, 364, 8, 22, "Print"]
+}, Open  ]],
+Cell[26231, 604, 17922, 364, 94, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44190, 973, 71, 1, 28, "Input"],
+Cell[44264, 976, 156, 2, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[44457, 983, 178, 3, 28, "Input"],
+Cell[44638, 988, 357, 8, 22, "Print"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45032, 1001, 226, 5, 28, "Input"],
+Cell[45261, 1008, 348, 7, 46, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[45646, 1020, 153, 3, 28, "Input"],
+Cell[45802, 1025, 91, 1, 28, "Output"]
+}, Open  ]],
+Cell[45908, 1029, 379, 12, 46, "Input"]
 }, Open  ]]
 }, Open  ]]
 }

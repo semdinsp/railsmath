@@ -1,7 +1,10 @@
 # railsmath
-Rails mathematica integration  post and get activerecord models from mathematica to a ruby on rails project
+Ruby on Rails mathematica integration  post and get activerecord models from mathematica to a ruby on rails project
 ## Test File
 This is included.  See rails test.mt for working examples but they will need to be changed to point to your rails application and model names
+
+##  Code Philiosphy
+Name the active record model and then post the data a a set of rules.  For example if your activerecord model is books and each book has a name and author you would post a book wiwith the name and author as a set of rules.  This is sent to Ruby on Rails code as a json post.
 
 ## Mathematica integration
 Sample code is as follows
@@ -11,7 +14,17 @@ Sample code is as follows
     res = rails`railsGetActiveRecordModel["net_asset_value", 1, host ];
     res["accountname"]
 
+So in this model the model name is net_assetvalue and we getting record 1.  THere are methods to get all the records and to post record.  You can see the code in the test template
+
 ## Logging
 Now has a basic logging facility.  
 Open log with file name and directory
-then use railsLog to log it.  Maybe in the future I will add priority and file rotation but right now this is all i need.  It sets a global variable called railsLogStream to use for output
+then use railsLog to log it.  Maybe in the future I will add priority and file rotation but right now this is all i need.  It sets a global variable called railsLogStream to use for output.  The default directory is "~/dreamLog" but it can be changed.  It will zip old files automatically and rename them
+
+Logging opens a file stream that you can write to.  Sample code is as follows:
+    
+    Needs["rails`"];
+    railsLogOpen["valueScreens"];  (* need to open rails logging *)
+    lmsg = StringJoin["Count members: ", ToString[Length[members]]];
+    rails`railsLog[rails`railsLogStream, lmsg, {rails`railsSystemStatus[]}];
+    railsLogClose[rails`railsLogStream];  

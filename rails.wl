@@ -19,6 +19,7 @@ railsGetRawJsonDataRails::usage="get Raw Json Data from rails application";
 railsPostActiveRecordModel::usage="create a model in active record from mathematica railsPostActiveRecordModel[modelName_String,body_Association,host_String ]";
 (* logging utilities for logging results *)
 railsLogOpen::usage="open logging railsLogOepn[fname_String, directory_String:]";
+railsLogClose::usage="close a stream: railsLogClose[out_OutputStream]";
 railsLogCompress::usage="compress log directory - internal only normal railsLogCompress[fname,directory]";
 railsLogStream::usage="log stream variable railsLogStream ";
 railsLog::usage="log values railsLog[out_OutputStream,string_String,expression_:{}]";
@@ -103,12 +104,20 @@ Write[out,{"-------------------------------: ",DateList[],$TimeZone}];
 Write[out,{string,expression}]
 ];
 
+railsLogClose[out_OutputStream]:=Module[{},
+railsLog[out,"-------closing"];
+Close[out];
+];
+
 railsSystemStatus[]:=Module[{assoc},
 assoc=<|"memoryinuse" -> MemoryInUse[],"maxmemory"-> MaxMemoryUsed[] ,"host" -> $MachineName, "kernel"-> $KernelID|>;
 assoc ];
 
 End[];
 EndPackage[];
+
+
+
 
 
 
