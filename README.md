@@ -2,6 +2,7 @@
 Ruby on Rails mathematica integration  post and get activerecord models from mathematica to a ruby on rails project
 ## Test File
 This is included.  See rails test.mt for working examples but they will need to be changed to point to your rails application and model names
+Updated on Oct 21 2016 to support Mathematic version 11 UrlExecute function.  This code should now run transparently on both 11 and 10 systems.
 
 ##  Code Philiosphy
 Name the active record model and then post the data a a set of rules.  For example if your activerecord model is books and each book has a name and author you would post a book wiwith the name and author as a set of rules.  This is sent to Ruby on Rails code as a json post.

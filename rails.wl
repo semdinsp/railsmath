@@ -16,6 +16,9 @@ railsGetJsonDataRails::usage="get json data railsGetJsonData[url_String,token_St
 railsGetActiveRecordModel::usage=" get ar model railsGetActiveRecordModel[modelName_String,id_Integer,host_String ]";
 railsGetActiveRecordModels::usage=" get ar model railsGetActiveRecordModels[modelName_String,,host_String ]";
 railsGetRawJsonDataRails::usage="get Raw Json Data from rails application";
+railsGetRawJsonDataRailsOld::usage="get Raw Json Data from rails application";
+railsPostJsonDataRailsOld::usage="pre version 11 old railsPostJsonDataRailsOld[url_String,rules_Rule] ";
+railsGenericHttpRequest::usage=" generic vesion 11 request  with supportfor post/get railsGenericHttpRequest[method_String,url_String,rules_Rule] ";
 railsPostActiveRecordModel::usage="create a model in active record from mathematica railsPostActiveRecordModel[modelName_String,body_Association,host_String ]";
 (* logging utilities for logging results *)
 railsLogOpen::usage="open logging railsLogOepn[fname_String, directory_String:]";
@@ -29,15 +32,44 @@ Begin["`Private`"]
 Attributes[railsPrintDebug]={HoldAll};
 railsPrintDebug[expr_] := Block[{railsDebugPrint = Print}, expr];
 
-railsGetRawJsonDataRails[url_String,rules_Rule]:=Module[{res,body},
+(* old version for rasp pi *)
+railsGetRawJsonDataRailsOld[url_String,rules_Rule]:=Module[{res,body},
 railsDebugPrint["url: ",url];
 body=ExportString[{Normal[rules]},"JSON"];
 If[body==$Failed,Print["Export failed for :",rules]];
 res=URLFetch[url,  "Body"-> body,
   "Method"->"GET","Headers"->{"Content-type" -> "application/json"}];
 railsDebugPrint["url ",url," res is: ",res, " rules were: ", rules];
+res =Association[ImportString[res,"JSON"]];  (* this is new *)
 res
 ];
+
+railsGenericHttpRequest[method_String,url_String,rules_Rule]:=Module[{body,requestAssoc},
+body=ExportString[{Normal[rules]},"JSON"];
+requestAssoc=<|"Body"-> body, "Method"->method,"Headers"->{"Content-type" -> "application/json"}|>;
+If[body==$Failed,Print["Export failed for :",rules, " method: ",method, " url: ",url]];
+URLExecute[HTTPRequest[url, requestAssoc],"JSON"]   (* new version *)
+];
+
+(* new for verison 11 support *)
+railsGetRawJsonDataRails[url_String,rules_Rule]:=Module[{res,body,},
+railsDebugPrint["url: ",url];
+If[$VersionNumber<11,res=railsGetRawJsonDataRailsOld[url,rules]];
+If[$VersionNumber>=11,
+res=railsGenericHttpRequest["GET",url,rules] ];
+railsDebugPrint["url ",url," res is: ",res, " rules were: ", rules];
+res
+];
+
+railsPostJsonDataRails[url_String,rules_Rule]:=Module[{res,body,},
+railsDebugPrint["url: ",url];
+If[$VersionNumber<11,res=railsPostJsonDataRailsOld[url,rules]];
+If[$VersionNumber>=11,
+res=railsGenericHttpRequest["POST",url,rules] ];
+railsDebugPrint["url ",url," res is: ",res, " rules were: ", rules];
+res
+];
+
 
 (* post a model/create *)
 
@@ -45,7 +77,7 @@ railsPostActiveRecordModel[modelName_String,body_Association,host_String ]:=Modu
 url=StringJoin[host,"/",modelName,"s.json"];
 railsDebugPrint["Posting railsPostActiveRecordModel: --->",body, " to url: ",url];
 res=railsPostJsonDataRails[url,modelName-> body] ;
-res ];
+Association[res] ];
 
 (* get one record from AR *)
 
@@ -60,9 +92,10 @@ railsGetActiveRecordModels[modelName_String,host_String ]:=Module[{res,url},
 url=StringJoin[host,"/",modelName,"s.json"];
 res=railsGetRawJsonDataRails[url,modelName-> modelName] ;
 railsDebugPrint["Getting: ",modelName, " from url: ",url, " res: ",res];
-ImportString[res,"JSON"] ];
+res ];
 
-railsPostJsonDataRails[url_String,rules_Rule]:=Module[{res,body},
+
+railsPostJsonDataRailsOld[url_String,rules_Rule]:=Module[{res,body},
 railsDebugPrint["url: ",url];
 body=ExportString[{Normal[rules]},"JSON"];
 If[body==$Failed,Print["Export failed for :",rules]];
@@ -74,7 +107,8 @@ Association[ImportString[res,"JSON"]]
 
 railsGetJsonDataRails[url_String,rules_Rule]:=Module[{res},
 res=railsGetRawJsonDataRails[url,rules];
-Association[ImportString[res,"JSON"]]
+Association[res] 
+
 ];
 
 (* logging *)
@@ -115,6 +149,9 @@ assoc ];
 
 End[];
 EndPackage[];
+
+
+
 
 
 
