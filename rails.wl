@@ -44,15 +44,18 @@ res =Association[ImportString[res,"JSON"]];  (* this is new *)
 res
 ];
 
-railsGenericHttpRequest[method_String,url_String,rules_Rule]:=Module[{body,requestAssoc},
+railsGenericHttpRequest[method_String,url_String,rules_Rule]:=Module[{body,requestAssoc,res},
 body=ExportString[{Normal[rules]},"JSON"];
 requestAssoc=<|"Body"-> body, "Method"->method,"Headers"->{"Content-type" -> "application/json"}|>;
+railsDebugPrint["url ",url," method is: ",method, " rules were: ", rules];
 If[body==$Failed,Print["Export failed for :",rules, " method: ",method, " url: ",url]];
-URLExecute[HTTPRequest[url, requestAssoc],"JSON"]   (* new version *)
+res=URLExecute[HTTPRequest[url, requestAssoc],"JSON"] ;
+railsDebugPrint[" FINISHED URLExecute url ",url," res is: ",res, " rules were: ", rules];
+res  (* new version *)
 ];
 
 (* new for verison 11 support *)
-railsGetRawJsonDataRails[url_String,rules_Rule]:=Module[{res,body,},
+railsGetRawJsonDataRails[url_String,rules_Rule]:=Module[{res,body},
 railsDebugPrint["url: ",url];
 If[$VersionNumber<11,res=railsGetRawJsonDataRailsOld[url,rules]];
 If[$VersionNumber>=11,
@@ -61,7 +64,7 @@ railsDebugPrint["url ",url," res is: ",res, " rules were: ", rules];
 res
 ];
 
-railsPostJsonDataRails[url_String,rules_Rule]:=Module[{res,body,},
+railsPostJsonDataRails[url_String,rules_Rule]:=Module[{res,body},
 railsDebugPrint["url: ",url];
 If[$VersionNumber<11,res=railsPostJsonDataRailsOld[url,rules]];
 If[$VersionNumber>=11,
