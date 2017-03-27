@@ -27,6 +27,7 @@ railsLogCompress::usage="compress log directory - internal only normal railsLogC
 railsLogStream::usage="log stream variable railsLogStream ";
 railsLog::usage="log values railsLog[out_OutputStream,string_String,expression_:{}]";
 railsSystemStatus::usage="return key system status railsSystemStatus";
+railsLogPlus::usage="log plus system status railsLogPlus[out_OutputStream,string_String,expression_:{}]";
 
 Begin["`Private`"]
 Attributes[railsPrintDebug]={HoldAll};
@@ -134,6 +135,10 @@ olddir=Directory[];
  SetDirectory[directory];
  {Print["zipping ",#," short:  ",FileNameTake[#]];RunProcess[{"gzip",FileNameTake[#]}] }& /@ files;
  SetDirectory[olddir];
+];
+
+railsLogPlus[out_OutputStream,string_String,expression_:{}]:=Module[{}, 
+  railsLog[out,string,Append[expression,railsSystemStatus[]]]
 ];
 
 railsLog[out_OutputStream,string_String,expression_:{}]:=Module[{}, 
