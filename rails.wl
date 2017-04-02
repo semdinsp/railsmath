@@ -16,9 +16,11 @@ railsGetJsonDataRails::usage="get json data railsGetJsonData[url_String,token_St
 railsGetActiveRecordModel::usage=" get ar model railsGetActiveRecordModel[modelName_String,id_Integer,host_String ]";
 railsGetActiveRecordModels::usage=" get ar model railsGetActiveRecordModels[modelName_String,,host_String ]";
 railsGetRawJsonDataRails::usage="get Raw Json Data from rails application";
+railsBuildAuthHeader::usage="build basic authentication hearder from username/password assocaition railsBuildAuthHeader";
 railsGetRawJsonDataRailsOld::usage="get Raw Json Data from rails application";
 railsPostJsonDataRailsOld::usage="pre version 11 old railsPostJsonDataRailsOld[url_String,rules_Rule] ";
 railsGenericHttpRequest::usage=" generic vesion 11 request  with supportfor post/get railsGenericHttpRequest[method_String,url_String,rules_Rule] ";
+railsGenericHttpRequestOld::usage=" generic vesion 11 request  with supportfor post/get railsGenericHttpRequest[method_String,url_String,rules_Rule] ";
 railsPostActiveRecordModel::usage="create a model in active record from mathematica railsPostActiveRecordModel[modelName_String,body_Association,host_String ]";
 (* logging utilities for logging results *)
 railsLogOpen::usage="open logging railsLogOepn[fname_String, directory_String:]";
@@ -45,7 +47,28 @@ res =Association[ImportString[res,"JSON"]];  (* this is new *)
 res
 ];
 
-railsGenericHttpRequest[method_String,url_String,rules_Rule]:=Module[{body,requestAssoc,res},
+(* build basic auth header *)
+railsBuildAuthHeader[auth_Association]:=Module[{tmp,b64},
+If[!KeyExistsQ[auth,#],Print["Authentication ",auth, "  needs key: ",#]] & /@ {"username","password"};
+tmp=StringJoin[auth["username"],":",auth["password"]];
+(* Print["tmp is: ",tmp];  *)
+b64=ExportString[tmp, "Base64"];
+StringJoin["Basic ",b64]
+];
+
+railsGenericHttpRequest[method_String,url_String,rules_Rule,auth_Association: <||>]:=Module[{body,requestAssoc,res,headers},
+body=ExportString[{Normal[rules]},"JSON"];
+headers={"Content-type" -> "application/json"};
+If[Length[auth]>0,headers=Flatten[Append[headers,{"Authorization"-> railsBuildAuthHeader[auth]}]]];
+requestAssoc=<|"Body"-> body, "Method"->method,"Headers"->headers|>;
+railsDebugPrint["url ",url," method is: ",method, " rules were: ", rules, " headers: ",headers];
+If[body==$Failed,Print["Export failed for :",rules, " method: ",method, " url: ",url]];
+res=URLExecute[HTTPRequest[url, requestAssoc],"JSON"] ;
+railsDebugPrint[" FINISHED URLExecute url ",url," res is: ",res, " rules were: ", rules];
+res  (* new version *)
+];
+
+railsGenericHttpRequestOld[method_String,url_String,rules_Rule]:=Module[{body,requestAssoc,res},
 body=ExportString[{Normal[rules]},"JSON"];
 requestAssoc=<|"Body"-> body, "Method"->method,"Headers"->{"Content-type" -> "application/json"}|>;
 railsDebugPrint["url ",url," method is: ",method, " rules were: ", rules];
@@ -56,18 +79,18 @@ res  (* new version *)
 ];
 
 (* new for verison 11 support *)
-railsGetRawJsonDataRails[url_String,rules_Rule]:=Module[{res,body},
+railsGetRawJsonDataRails[url_String,rules_Rule,auth_Association: <||>]:=Module[{res,body},
 railsDebugPrint["url: ",url];
-If[$VersionNumber<11,res=railsGetRawJsonDataRailsOld[url,rules]];
+If[$VersionNumber<11,res=railsGetRawJsonDataRailsOld[url,rules,auth]];
 If[$VersionNumber>=11,
 res=railsGenericHttpRequest["GET",url,rules] ];
 railsDebugPrint["url ",url," res is: ",res, " rules were: ", rules];
 res
 ];
 
-railsPostJsonDataRails[url_String,rules_Rule]:=Module[{res,body},
+railsPostJsonDataRails[url_String,rules_Rule,auth_Association: <||>]:=Module[{res,body},
 railsDebugPrint["url: ",url];
-If[$VersionNumber<11,res=railsPostJsonDataRailsOld[url,rules]];
+If[$VersionNumber<11,res=railsPostJsonDataRailsOld[url,rules,auth]];
 If[$VersionNumber>=11,
 res=railsGenericHttpRequest["POST",url,rules] ];
 railsDebugPrint["url ",url," res is: ",res, " rules were: ", rules];
@@ -77,24 +100,24 @@ res
 
 (* post a model/create *)
 
-railsPostActiveRecordModel[modelName_String,body_Association,host_String ]:=Module[{res,url},
+railsPostActiveRecordModel[modelName_String,body_Association,host_String,auth_Association: <||> ]:=Module[{res,url},
 url=StringJoin[host,"/",modelName,"s.json"];
 railsDebugPrint["Posting railsPostActiveRecordModel: --->",body, " to url: ",url];
-res=railsPostJsonDataRails[url,modelName-> body] ;
+res=railsPostJsonDataRails[url,modelName-> body,auth] ;
 Association[res] ];
 
 (* get one record from AR *)
 
-railsGetActiveRecordModel[modelName_String,id_Integer,host_String ]:=Module[{res,url},
+railsGetActiveRecordModel[modelName_String,id_Integer,host_String ,auth_Association: <||>]:=Module[{res,url},
 url=StringJoin[host,"/",modelName,"s/",ToString[id],".json"];
 railsDebugPrint["Getting: ",modelName, " to url: ",url, " id: ",id];
-res=railsGetJsonDataRails[url,modelName-> modelName] ;
+res=railsGetJsonDataRails[url,modelName-> modelName, auth] ;
 res ];
 
 (* get many instances of model *)
-railsGetActiveRecordModels[modelName_String,host_String ]:=Module[{res,url},
+railsGetActiveRecordModels[modelName_String,host_String, auth_Association: <||> ]:=Module[{res,url},
 url=StringJoin[host,"/",modelName,"s.json"];
-res=railsGetRawJsonDataRails[url,modelName-> modelName] ;
+res=railsGetRawJsonDataRails[url,modelName-> modelName, auth] ;
 railsDebugPrint["Getting: ",modelName, " from url: ",url, " res: ",res];
 res ];
 
