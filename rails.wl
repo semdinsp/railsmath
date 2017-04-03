@@ -83,16 +83,16 @@ railsGetRawJsonDataRails[url_String,rules_Rule,auth_Association: <||>]:=Module[{
 railsDebugPrint["url: ",url];
 If[$VersionNumber<11,res=railsGetRawJsonDataRailsOld[url,rules,auth]];
 If[$VersionNumber>=11,
-res=railsGenericHttpRequest["GET",url,rules] ];
+res=railsGenericHttpRequest["GET",url,rules,auth] ];
 railsDebugPrint["url ",url," res is: ",res, " rules were: ", rules];
 res
 ];
 
 railsPostJsonDataRails[url_String,rules_Rule,auth_Association: <||>]:=Module[{res,body},
 railsDebugPrint["url: ",url];
-If[$VersionNumber<11,res=railsPostJsonDataRailsOld[url,rules,auth]];
+If[$VersionNumber<11,res=railsPostJsonDataRailsOld[url,rules]];
 If[$VersionNumber>=11,
-res=railsGenericHttpRequest["POST",url,rules] ];
+res=railsGenericHttpRequest["POST",url,rules,auth] ];
 railsDebugPrint["url ",url," res is: ",res, " rules were: ", rules];
 res
 ];
@@ -132,8 +132,8 @@ railsDebugPrint["url ",url," res is: ",res, " rules were: ", rules];
 Association[ImportString[res,"JSON"]]
 ];
 
-railsGetJsonDataRails[url_String,rules_Rule]:=Module[{res},
-res=railsGetRawJsonDataRails[url,rules];
+railsGetJsonDataRails[url_String,rules_Rule,auth_Association: <||> ]:=Module[{res},
+res=railsGetRawJsonDataRails[url,rules,auth];
 Association[res] 
 
 ];
