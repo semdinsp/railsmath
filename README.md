@@ -18,7 +18,7 @@ Sample code is as follows
 So in this model the model name is net_assetvalue and we getting record 1.  THere are methods to get all the records and to post record.  You can see the code in the test template
 
 ### Mathematica integration with authenticationn
-I have added HTTP Basic authentication support to the code by appending an association compposed of username and password.  This currently only supports HTTP basic authentication and is passed a HTML header setting Authorization sent to a base 64 combination of username:password.  THis seems to consistently work.  If you add the auth association to the call you get authorization and if it is missing or empty then there is no authorization. 
+I have added HTTP Basic authentication support to the code by appending an association compposed of username and password.  This currently only supports HTTP basic authentication and is passed a HTML header setting Authorization set to a base 64 combination of username:password.  THis seems to consistently work.  If you add the auth association to the call you get authorization and if it is missing or empty then there is no authorization. 
 
     Needs["rails`"];
     host = "http://127.0.0.1:5522/";
