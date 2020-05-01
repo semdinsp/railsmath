@@ -74,6 +74,8 @@ body=If[Values[rules]=={},"",ExportString[{Normal[rules]},"JSON"],ExportString[{
 headers={"Content-type" -> "application/json"};
 If[Length[auth]>0,headers=Flatten[Append[headers,{"Authorization"-> rails`railsBuildAuthHeader[auth]}]]];
 requestAssoc=<|"Body"-> body, "Method"->method,"Headers"->headers|>;
+(* new by scott *)
+If[method=="GET",requestAssoc=<|"Query"-> rules, "Method"->method,"Headers"->headers|>];
 railsDebugPrint["url ",url," method is: ",method," requestAssoc:",requestAssoc, " rules were: ", rules, " headers: ",headers];
 If[body==$Failed,Print["Export failed for :",rules, " method: ",method, " url: ",url]];
 (* res=URLExecute[HTTPRequest[url, requestAssoc],format] ;  *)
